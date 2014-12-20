@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="MPDViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekz-JR-4dG">
+                                <rect key="frame" x="172" y="172" width="256" height="256"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="OdW-L2-KQX"/>
+                                    <constraint firstAttribute="width" constant="256" id="oc4-wB-TG3"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Khb-bo-UxR" kind="embed" identifier="MDPCameraSegueIdentifier" id="Tf8-Jz-WcP"/>
+                                </connections>
+                            </containerView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-hQ-b3b">
+                                <rect key="frame" x="174" y="533" width="252" height="31"/>
+                                <color key="tintColor" red="0.0" green="0.72549019609999998" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="iUi-up-r87"/>
+                                    <constraint firstAttribute="width" constant="248" id="pu7-c6-Jde"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" red="0.0" green="0.72549019609999998" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="maximumTrackTintColor" red="1" green="0.31764705879999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="handleStaruationValueChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="sLb-Vg-kMg"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="LCl-hQ-b3b" secondAttribute="centerX" id="1Px-B9-EFT"/>
+                            <constraint firstAttribute="centerX" secondItem="Ekz-JR-4dG" secondAttribute="centerX" id="OQX-be-Wre"/>
+                            <constraint firstAttribute="centerY" secondItem="LCl-hQ-b3b" secondAttribute="centerY" constant="-248" id="Xy3-yb-EgC"/>
+                            <constraint firstAttribute="centerY" secondItem="Ekz-JR-4dG" secondAttribute="centerY" id="qu0-nM-dxm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="saturationSlider" destination="LCl-hQ-b3b" id="3yE-a3-h1X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--GLKit View Controller-->
+        <scene sceneID="MKZ-Yu-iTq">
+            <objects>
+                <glkViewController preferredFramesPerSecond="30" id="Khb-bo-UxR" customClass="MPDCustomCameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LFN-sE-NCE"/>
+                        <viewControllerLayoutGuide type="bottom" id="4yQ-bJ-Y3c"/>
+                    </layoutGuides>
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="PZs-Ue-W4y">
+                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <connections>
+                            <outlet property="delegate" destination="Khb-bo-UxR" id="qFk-5l-7xJ"/>
+                        </connections>
+                    </glkView>
+                </glkViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYp-SF-sd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1151" y="479"/>
+        </scene>
+    </scenes>
+</document>
